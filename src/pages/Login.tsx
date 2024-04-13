@@ -1,11 +1,11 @@
 import { useState, SyntheticEvent } from 'react';
 import axios from 'axios';
-import { Navigate } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 
 /*ToDo:
     Adicionar feedback no login (casos de erro, uma indicação que o submit foi chamado, etc)
         Ideias: 
-        Usar toastify para um feedback simples e bonito
+        Usar toastify para um feedback simples
         Criar um componente customizado para isso 
     Integrar com o backend de fato
 */
@@ -51,22 +51,29 @@ const Login = () => {
         return <Navigate to="/"/>;
     }
     return (
-        <form className='form-floating' onSubmit={submit}>
-        <h1 className="h3 mb-3 fw-normal">Faça o log in</h1>
-        {/* O uso de placeholders aqui pode ser um problema de acessibilidade */}
-        <div className="form-signin">
-            <input type="email" className="form-control" placeholder="nome@exemplo.com" required 
-            onChange={e => setEmail(e.target.value)}
-            />
+        <div className='login-background'>
+        <div className='login-form'>
+            <div className='logo-box'>
+                <img src="logo.png" alt="logo to-do" />
+            </div>
+            <form className='form-floating' onSubmit={submit}>
+            <div className="form-signin">
+                <label htmlFor="email">Email</label>
+                <input id='email' type="email" className="form-control" required 
+                onChange={e => setEmail(e.target.value)}
+                />
+            </div>
+            <div className="form-signin">
+                <label htmlFor="password">Senha</label>
+                <input id='password' type="password" className="form-control" required 
+                onChange={e => setPassword(e.target.value)}
+                />
+            </div>
+            <Link className="nav-link" to="/register">Criar uma conta</Link>
+            <button className="submit-bttn" type="submit">Login</button>
+            </form>
         </div>
-        <div className="form-signin">
-            <input type="password" className="form-control" placeholder="Senha" required 
-            onChange={e => setPassword(e.target.value)}
-            />
         </div>
-        <button className="form-signin btn btn-primary w-100 py-2" type="submit">Entrar</button>
-        <p className="mt-5 mb-3 text-body-secondary">&copy; 2017–2024</p>
-        </form>
     );
 }
 export default Login;

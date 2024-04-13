@@ -1,10 +1,21 @@
 html,
 body {
-  height: 100%;
+  margin: 0px 0;
+  overflow: hidden;
+  max-width: 100%;
+  background-color:#ffffff;
+  width: 100vw;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0px 0;
+}
+
+:root{
+  --cor1: #D74C2E;
+  --cor2: #FFA895;
+  --cor3: #FFD6C5;
+  --cor4: #FFF5F5;
 }
 
 /* Estilo para o formulário */
@@ -27,6 +38,91 @@ body {
 /* Estilo para o rodapé */
 .text-body-secondary {
   text-align: center;
+}
+
+.login-background, .register-background{
+  width: 100%;
+  height: 100%;
+  background-color: var(--cor2);
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+    &::before{
+      content: "";
+      position: absolute;
+      width: 80%;
+      height: 80%;
+      background: linear-gradient(90deg, var(--cor3), var(--cor4));
+      border-radius: 50%;
+      left: -10%;
+      top: -20%;
+      filter: blur(90px);
+    }
+    &::after{
+      content: "";
+      position: absolute;
+      width: 80%;
+      height: 80%;
+      background: linear-gradient(90deg, var(--cor3), var(--cor4));
+      border-radius: 50%;
+      right: -10%;
+      bottom: -20%;
+      filter: blur(90px);
+    }
+}
+
+.login-form, .register-form{
+  height: 80%;
+  width: 90%;
+  border-radius: 25px;
+  z-index: 10;
+  background-color: rgba(255, 245, 245, 0.750);
+
+  .logo-box{
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    margin-bottom: 15px;
+  }
+  .form-signin > label{
+    display: block;
+    text-align: left;
+    font-weight: bold;
+    color: #6F6D6D;
+  }
+  .form-signin > input{
+    margin-top: 10px;
+    border: none;
+  }
+  h1{
+    font-weight: bolder;
+    font-size: 1.9em;
+    color: #6F6D6D;
+    margin-bottom: 20px;
+  }
+
+  .nav-link{
+    display: block;
+    text-align: left;
+    font-weight: bold;
+    color: #6F6D6D;
+  }
+}
+
+.submit-bttn{
+  background-color: #D74C2E;
+  color: white;
+  border-radius: 15px;
+  border: none;
+  margin-top: 20px;
+  width: 200px;
+  height: 50px;
+
+  &:hover{
+    background-color: #d74d2ebc;
+  }
 }
 
 /* Estilos responsivos para telas menores */
