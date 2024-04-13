@@ -1,6 +1,6 @@
 import {useState, SyntheticEvent} from 'react';
 import axios from 'axios';
-import { Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 /*ToDo:
     Feedback para o registro
